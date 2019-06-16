@@ -1,14 +1,18 @@
-package com.mycompany.repository;
+package com.project.app.reposiory;
 
-import com.mycompany.model.Human;
+import com.project.app.model.Human;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+@Component
+@Qualifier("programmer")
 public class ProgrammerRepository implements Repository {
 
-   private HashMap<Integer,Human > programmersMap = new HashMap<Integer, Human>();
+   private HashMap<Integer, Human> programmersMap = new HashMap<Integer, Human>();
 
 
     @Override
