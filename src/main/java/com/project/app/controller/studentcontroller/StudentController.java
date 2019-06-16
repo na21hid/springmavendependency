@@ -1,7 +1,7 @@
-package com.project.app.controller;
+package com.project.app.controller.studentcontroller;
 
 
-import com.project.app.model.Human;
+import com.project.app.dto.HumanDTO;
 import com.project.app.service.studentservice.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,24 +14,21 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
     @RequestMapping(value = "/student/{id}", method = RequestMethod.GET)
-    @ResponseBody Human getStudent(@PathVariable int id){
-        Human human = studentService.read(id);
-        return human;
+    @ResponseBody
+    HumanDTO getStudent(@PathVariable int id){
+        HumanDTO humanDTO = studentService.read(id);
+        return humanDTO;
     }
 
     @RequestMapping(value = "/student",  method = RequestMethod.POST)
-    @ResponseBody Human insertStudent(@RequestBody Human human){
-        if("s".equals(human.getType())) {
-            studentService.write(human);
+    @ResponseBody HumanDTO insertStudent(@RequestBody HumanDTO humanDTO){
+        if("s".equals(humanDTO.getType())) {
+            studentService.write(humanDTO);
         }
 //        System.out.println(student.toString());
-        return human;
+        return humanDTO;
     }
 
 }
