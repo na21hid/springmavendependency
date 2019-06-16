@@ -1,9 +1,9 @@
-package com.mycompany.model;
+package com.project.app.model;
 
 public class Programer extends Human {
 
-    public Programer(int id, int age, String sex, double salary) {
-        super(id, age, sex, salary);
+    public Programer(int id, int age, String sex, double salary,String type) {
+        super(id, age, sex, salary, type);
     }
 
 
