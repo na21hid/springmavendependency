@@ -1,13 +1,16 @@
-package com.mycompany.repository;
+package com.project.app.reposiory;
 
-import com.mycompany.model.Human;
+import com.project.app.model.Human;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
+@Qualifier("teacher")
 public class TeacherRepository implements Repository {
 
-    private String fileName = "/home/amir/javarepository/src/main/resources/users.csv";
     List<Human> humans = new LinkedList<Human>();
 
 
@@ -15,8 +18,8 @@ public class TeacherRepository implements Repository {
     @Override
     public Human read(int id) {
         for (int i = 0; i < humans.size() ; i++) {
-            if (humans.get(id).getId() == id){
-                return humans.get(id);
+            if (humans.get(i).getId() == id){
+                return humans.get(i);
             }
         }
         return null;
