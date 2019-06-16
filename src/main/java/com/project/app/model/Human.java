@@ -1,17 +1,28 @@
-package com.mycompany.model;
+package com.project.app.model;
 
+import javax.persistence.*;
 
+@Entity
 public class Human {
-   private int id ;
-   private int age;
-   private String sex;
-   private double salary;
 
-    public Human(int id, int age, String sex, double salary) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+   private int id ;
+    @Column
+   private int age;
+    @Column
+   private String sex;
+    @Column
+   private double salary;
+    @Column
+   private String type;
+
+    public Human(int id, int age, String sex, double salary, String type) {
         this.id = id;
         this.age = age;
         this.sex = sex;
         this.salary = salary;
+        this.type = type;
     }
 
     public Human() {
@@ -49,6 +60,15 @@ public class Human {
         this.salary = salary;
     }
 
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Human{" +
@@ -58,4 +78,5 @@ public class Human {
                 ", salary=" + salary +
                 '}';
     }
+
 }
