@@ -1,29 +1,33 @@
-package com.project.app.service.studentservice;
+package com.project.app.service;
 
 import com.project.app.dto.HumanDTO;
 import com.project.app.model.Human;
+import com.project.app.repository.HumanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class MyStudentService implements StudentService {
 
     @Autowired
-    @Qualifier("student")
-    Repository studentRepository;
+    HumanRepository studentRepository;
 
-    @Override
-    public HumanDTO read(int id) {
-        Human human = studentRepository.read(id);
-        HumanDTO humanDTO = convertHumanToHumanDTO(human);
-        return humanDTO;
+@Override
+    public HumanDTO read(Long id) {
+        Optional<Human> studentOptional = studentRepository.findById(id);
+        if(studentOptional.isPresent()){
+            return convertHumanToHumanDTO(studentOptional.get());
+        }else {
+            return null;
+        }
     }
 
-    @Override
+@Override
     public void write(HumanDTO humandto) {
         Human human = convertHumanDTOtoHuman(humandto);
-        studentRepository.write(human);
+        studentRepository.save(human);
     }
 
 
