@@ -2,7 +2,6 @@ package com.project.app.service.studentservice;
 
 import com.project.app.dto.HumanDTO;
 import com.project.app.model.Human;
-import com.project.app.reposiory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
