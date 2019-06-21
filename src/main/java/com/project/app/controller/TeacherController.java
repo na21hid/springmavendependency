@@ -1,7 +1,7 @@
-package com.project.app.controller.teachercontroller;
+package com.project.app.controller;
 
 import com.project.app.dto.HumanDTO;
-import com.project.app.service.teacherservice.TeacherService;
+import com.project.app.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ public class TeacherController {
 
     @GetMapping("/teacher/{id}")
     @ResponseBody
-    HumanDTO getTeacher(@PathVariable int id){
+    HumanDTO getTeacher(@PathVariable Long id){
         HumanDTO humanDTO = teacherService.read(id);
         return humanDTO;
     }
