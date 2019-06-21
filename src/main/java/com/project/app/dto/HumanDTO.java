@@ -2,13 +2,13 @@ package com.project.app.dto;
 
 public class HumanDTO{
 
-    private int id ;
+    private Long id ;
     private int age;
     private String sex;
     private double salary;
     private String type;
 
-    public HumanDTO(int id, int age, String sex, double salary, String type) {
+    public HumanDTO(Long id, int age, String sex, double salary, String type) {
         this.id = id;
         this.age = age;
         this.sex = sex;
@@ -19,11 +19,11 @@ public class HumanDTO{
     public HumanDTO() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
