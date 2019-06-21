@@ -2,7 +2,7 @@ package com.project.app.model;
 
 public class Programer extends Human {
 
-    public Programer(int id, int age, String sex, double salary,String type) {
+    public Programer(Long id, int age, String sex, double salary,String type) {
         super(id, age, sex, salary, type);
     }
 
