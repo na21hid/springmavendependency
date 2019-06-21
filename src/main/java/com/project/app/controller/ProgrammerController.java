@@ -1,7 +1,7 @@
-package com.project.app.controller.programmercontroller;
+package com.project.app.controller;
 
 import com.project.app.dto.HumanDTO;
-import com.project.app.service.programmerservice.ProgrammerService;
+import com.project.app.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class ProgrammerController {
 
     @GetMapping("/programmer/{id}")
     @ResponseBody
-    HumanDTO getProgrammer(@PathVariable int id){
+    HumanDTO getProgrammer(@PathVariable Long id){
         HumanDTO humanDTO = programmerService.read(id);
         return humanDTO;
     }
