@@ -1,29 +1,32 @@
-package com.project.app.service.programmerservice;
+package com.project.app.service;
 
 import com.project.app.dto.HumanDTO;
 import com.project.app.model.Human;
+import com.project.app.repository.HumanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class MyProgrammerService implements ProgrammerService {
 
     @Autowired
-    @Qualifier("programmer")
-    Repository programmerRepository;
+    HumanRepository programmerRepository;
 
     @Override
-    public HumanDTO read(int id) {
-        Human human = programmerRepository.read(id);
-        HumanDTO humanDTO = convertHumanToHumanDto(human);
-        return humanDTO;
+    public HumanDTO read(Long id) {
+        Optional<Human> programmerOptional = programmerRepository.findById(id);
+        if(programmerOptional.isPresent()){
+            return convertHumanToHumanDto(programmerOptional.get());
+        }
+        return null;
     }
 
     @Override
     public void write(HumanDTO humanDTO) {
        Human human = convertHumanDtoToHuman(humanDTO);
-    programmerRepository.write(human);
+    programmerRepository.save(human);
 
     }
 
