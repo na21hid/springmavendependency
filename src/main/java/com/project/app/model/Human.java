@@ -7,7 +7,7 @@ public class Human {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   private int id ;
+   private Long id ;
     @Column
    private int age;
     @Column
@@ -17,7 +17,7 @@ public class Human {
     @Column
    private String type;
 
-    public Human(int id, int age, String sex, double salary, String type) {
+    public Human(Long id, int age, String sex, double salary, String type) {
         this.id = id;
         this.age = age;
         this.sex = sex;
@@ -28,11 +28,11 @@ public class Human {
     public Human() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
